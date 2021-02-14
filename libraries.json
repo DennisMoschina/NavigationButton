@@ -1,0 +1,25 @@
+{
+  "name": "NavigationButton",
+  "version": "1.0.0",
+  "description": "use a button to navigate through menus",
+  "keywords": "navigation, button, menu",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/DennisMoschina/Libraries.git"
+  },
+  "export": {
+    "include":
+    [
+      "/src/*.cpp",
+      "/include/*.h"
+    ]
+  },
+  "authors":
+  [
+    {
+      "name": "Dennis Moschina",
+      "url": "https://dev.moschina.de"
+    }
+  ]
+}
