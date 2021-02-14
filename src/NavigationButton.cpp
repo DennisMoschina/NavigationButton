@@ -1,11 +1,16 @@
 #include <Arduino.h>
 #include "NavigationButton.h"
 
-NavigationButton::NavigationButton(byte pin) {
+NavigationButton::NavigationButton(byte pin, int longPressTime) {
     this->pin = pin;
+    this->longPressTime = longPressTime;
 
     pinMode(pin, INPUT_PULLUP);
-    attachInterrupt(digitalPinToInterrupt(pin), interacted, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(pin), staticInteracted, CHANGE);
+}
+
+void NavigationButton::setLongPressTime(int longPressTime) {
+    this->longPressTime = longPressTime;
 }
 
 void NavigationButton::interacted() {

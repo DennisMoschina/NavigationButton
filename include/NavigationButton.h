@@ -8,9 +8,9 @@
 
 class NavigationButton {
 public:
-    NavigationButton(byte pin);
+    NavigationButton(byte pin, int longPressTime = 1000);
 
-    void setLongPressTime(int time);
+    void setLongPressTime(int longPressTime);
 
     void addLongPressAction(std::function<void()> action);
     void addShortPressAction(std::function<void()> action);
@@ -32,6 +32,9 @@ private:
     std::vector<std::function<void()>> longPressAction;
     std::vector<std::function<void()>> shortPressAction;
 
+    static void staticInteracted() {
+        interacted();
+    }
     void interacted();
     boolean checkForLongPress();
 };
