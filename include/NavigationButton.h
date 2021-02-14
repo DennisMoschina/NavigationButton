@@ -32,9 +32,6 @@ private:
     std::vector<std::function<void()>> longPressAction;
     std::vector<std::function<void()>> shortPressAction;
 
-    static void staticInteracted() {
-        interacted();
-    }
     void interacted();
     boolean checkForLongPress();
 };
