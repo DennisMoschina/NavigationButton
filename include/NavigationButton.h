@@ -17,6 +17,8 @@ public:
 
     void setLongPressCounter(int counter = 0);
     void setShortPressCounter(int counter = 0);
+    
+    void interacted();
 
 private:
     byte pin;
@@ -32,7 +34,6 @@ private:
     std::vector<std::function<void()>> longPressAction;
     std::vector<std::function<void()>> shortPressAction;
 
-    void interacted();
     boolean checkForLongPress();
 };
 
