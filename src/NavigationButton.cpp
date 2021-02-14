@@ -14,7 +14,7 @@ void NavigationButton::interacted() {
     } else {
         this->released = millis();
 
-        if (checkForLongPress) {
+        if (checkForLongPress()) {
             this->longPressAction[longPressCounter];
 
             this->longPressCounter =
@@ -28,7 +28,7 @@ void NavigationButton::interacted() {
     }
 }
 
-bool checkForLongPress() {
+bool NavigationButton::checkForLongPress() {
   int difference = this->released - this->pressed;
   return (difference) > longPressTime;
 }
@@ -36,7 +36,7 @@ bool checkForLongPress() {
 void NavigationButton::addLongPressAction(std::function<void()> action) {
     this->longPressAction.push_back(action);
 }
-void addShortPressAction(std::function<void()> action) {
+void NavigationButton::addShortPressAction(std::function<void()> action) {
     this->shortPressAction.push_back(action);
 }
 void NavigationButton::setLongPressCounter(int counter) {
